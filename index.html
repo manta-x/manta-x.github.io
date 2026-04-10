@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DataMuse - 智能数据管理平台 | Manta-X</title>
-  <meta name="description" content="DataMuse 是一款现代化的数据管理应用，能连接诸多的数据源、数据文件，提供便捷的UI来管理、分析数据。">
+  <title>DataMuse - Smart Data Management Platform | Manta-X</title>
+  <meta name="description" content="DataMuse is a modern data management app that connects to various data sources and data files, providing a convenient UI to manage and analyze data.">
   <link rel="icon" type="image/png" href="manta-x-logo.png">
   <style>
     /* ========== Reset & Base ========== */
@@ -73,9 +73,17 @@
     .hero-text h1 span {
       -webkit-text-fill-color: #4361ee;
     }
+    .hero-text .subtitle {
+      font-size: 1.3rem; color: #333; margin-top: 20px;
+      font-weight: 600;
+    }
+    .hero-text .tagline {
+      font-size: 1.15rem; color: #555; margin-top: 16px;
+      max-width: 480px; line-height: 1.8;
+    }
     .coming-soon-badge {
       display: inline-block;
-      margin-top: 20px;
+      margin-top: 24px;
       padding: 6px 18px;
       border-radius: 20px;
       font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px;
@@ -86,26 +94,6 @@
     @keyframes pulse-badge {
       0%, 100% { box-shadow: 0 0 0 0 rgba(247,37,133,0.4); }
       50% { box-shadow: 0 0 0 10px rgba(247,37,133,0); }
-    }
-    .hero-text .tagline {
-      font-size: 1.25rem; color: #555; margin-top: 16px;
-      max-width: 480px; line-height: 1.8;
-    }
-    .hero-actions { display: flex; gap: 16px; margin-top: 36px; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 14px 32px; border-radius: 12px;
-      background: linear-gradient(135deg, #4361ee, #3a0ca3);
-      color: #fff; font-weight: 600; font-size: 1rem;
-      box-shadow: 0 4px 20px rgba(67,97,238,0.35);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(67,97,238,0.45); }
-    .btn-disabled {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 14px 32px; border-radius: 12px;
-      background: rgba(67,97,238,0.08); color: #4361ee; font-weight: 600; font-size: 1rem;
-      cursor: default;
     }
     .hero-visual {
       display: flex; justify-content: center; align-items: center;
@@ -131,26 +119,12 @@
       font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
       font-size: 0.85rem; color: #666;
       background: #f7f8fc; border-radius: 12px; padding: 16px 20px;
-      margin-bottom: 12px;
     }
     .mock-query .kw { color: #4361ee; font-weight: 600; }
     .mock-query .str { color: #e63946; }
-    .mock-result {
-      background: linear-gradient(135deg, #f0f4ff, #eef1ff);
-      border-radius: 12px; padding: 16px 20px;
-      font-size: 0.8rem; color: #444;
-    }
-    .mock-result .row {
-      display: flex; justify-content: space-between;
-      padding: 6px 0; border-bottom: 1px solid rgba(0,0,0,0.04);
-    }
-    .mock-result .row:last-child { border-bottom: none; }
-    .mock-result .label { color: #888; font-weight: 500; }
-    .mock-result .value { font-weight: 600; color: #4361ee; }
 
     /* ========== Section Common ========== */
     section { padding: 100px 32px; }
-    .section-inner { max-width: 1200px; margin: 0 auto; }
 
     /* ========== Footer ========== */
     footer {
@@ -171,7 +145,6 @@
     @media (max-width: 900px) {
       .hero-inner { grid-template-columns: 1fr; text-align: center; }
       .hero-text .tagline { margin: 16px auto 0; }
-      .hero-actions { justify-content: center; }
       .hero-visual-card { max-width: 400px; margin: 0 auto; }
       .hero-text h1 { font-size: 2.5rem; }
     }
@@ -180,9 +153,8 @@
       section { padding: 60px 20px; }
       .hero-inner { padding: 100px 20px 60px; }
       .hero-text h1 { font-size: 2rem; }
+      .hero-text .subtitle { font-size: 1.1rem; }
       .hero-text .tagline { font-size: 1.05rem; }
-      .hero-actions { flex-direction: column; align-items: stretch; }
-      .btn-primary, .btn-disabled { justify-content: center; }
       .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
     }
 
@@ -214,16 +186,11 @@
     <div class="hero-inner">
       <div class="hero-text">
         <h1 class="fade-in"><span>DataMuse</span></h1>
-        <div class="coming-soon-badge delay-1">Coming Soon</div>
+        <p class="subtitle delay-1">Manage Your Data &mdash; DB, Files, APIs</p>
         <p class="tagline delay-1">
-          管理你的数据（DB、Files、APIs）
+          A modern data management app that connects to various data sources and data files, providing a convenient UI to manage and analyze your data.
         </p>
-        <div class="hero-actions delay-2">
-          <span class="btn-disabled">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            即将发布，敬请期待
-          </span>
-        </div>
+        <div class="coming-soon-badge delay-2">Coming Soon</div>
       </div>
       <div class="hero-visual fade-in delay-3">
         <div class="hero-visual-card">
@@ -238,12 +205,6 @@
             <span class="kw">ORDER BY</span> revenue <span class="kw">DESC</span><br>
             <span class="kw">LIMIT</span> 10;
           </div>
-          <div class="mock-result">
-            <div class="row"><span class="label">Top Customer</span><span class="value">Acme Corp &mdash; $2.4M</span></div>
-            <div class="row"><span class="label">Region</span><span class="value">Asia-Pacific</span></div>
-            <div class="row"><span class="label">Growth</span><span class="value">+37.2% YoY</span></div>
-            <div class="row"><span class="label">Records</span><span class="value">12,847 rows (0.03s)</span></div>
-          </div>
         </div>
       </div>
     </div>
@@ -256,7 +217,7 @@
         <img src="manta-x-logo.png" alt="Manta-X">
         Manta-X &copy; 2026
       </div>
-      <div>专注于数据管理、分析与处理</div>
+      <div>Focused on Data Management, Analytics & Processing</div>
     </div>
   </footer>
 
