@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DataMuse - 智能数据管理平台 | Manta-X</title>
-  <meta name="description" content="DataMuse 是一款现代化的数据管理应用，连接诸多数据库与数据文件，提供 UI 查询分析与 Agent-Skill 自动化。">
+  <meta name="description" content="DataMuse 是一款现代化的数据管理应用，能连接诸多的数据源、数据文件，提供便捷的UI来管理、分析数据。">
   <link rel="icon" type="image/png" href="manta-x-logo.png">
   <style>
     /* ========== Reset & Base ========== */
@@ -32,7 +32,7 @@
     .navbar.scrolled { box-shadow: 0 2px 30px rgba(0,0,0,0.08); }
     .nav-inner {
       max-width: 1200px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex; align-items: center;
       padding: 14px 32px;
     }
     .nav-brand {
@@ -40,21 +40,6 @@
       font-size: 1.3rem; font-weight: 700; color: #0f0f23;
     }
     .nav-brand img { width: 40px; height: 40px; border-radius: 10px; }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a {
-      font-size: 0.95rem; font-weight: 500; color: #555;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: #4361ee; }
-    .nav-cta {
-      padding: 8px 22px; border-radius: 8px;
-      background: #4361ee; color: #fff !important;
-      font-weight: 600; font-size: 0.9rem;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .nav-cta:hover { background: #3a56d4; transform: translateY(-1px); }
-    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
-    .mobile-toggle span { display: block; width: 24px; height: 2px; background: #333; margin: 5px 0; border-radius: 2px; transition: 0.3s; }
 
     /* ========== Hero ========== */
     .hero {
@@ -88,8 +73,22 @@
     .hero-text h1 span {
       -webkit-text-fill-color: #4361ee;
     }
+    .coming-soon-badge {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px;
+      background: linear-gradient(135deg, #f72585, #b5179e);
+      color: #fff;
+      animation: pulse-badge 2s ease-in-out infinite;
+    }
+    @keyframes pulse-badge {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(247,37,133,0.4); }
+      50% { box-shadow: 0 0 0 10px rgba(247,37,133,0); }
+    }
     .hero-text .tagline {
-      font-size: 1.25rem; color: #555; margin-top: 20px;
+      font-size: 1.25rem; color: #555; margin-top: 16px;
       max-width: 480px; line-height: 1.8;
     }
     .hero-actions { display: flex; gap: 16px; margin-top: 36px; flex-wrap: wrap; }
@@ -102,14 +101,12 @@
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(67,97,238,0.45); }
-    .btn-secondary {
+    .btn-disabled {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 14px 32px; border-radius: 12px;
-      background: #fff; color: #333; font-weight: 600; font-size: 1rem;
-      border: 1.5px solid #ddd;
-      transition: border-color 0.2s, transform 0.2s;
+      background: rgba(67,97,238,0.08); color: #4361ee; font-weight: 600; font-size: 1rem;
+      cursor: default;
     }
-    .btn-secondary:hover { border-color: #4361ee; transform: translateY(-2px); }
     .hero-visual {
       display: flex; justify-content: center; align-items: center;
       position: relative;
@@ -167,8 +164,8 @@
       font-size: 1.1rem; color: #666; max-width: 600px;
     }
 
-    /* ========== DataMuse ========== */
-    #datamuse { background: linear-gradient(180deg, #f8f9ff 0%, #fff 100%); }
+    /* ========== Features ========== */
+    #features { background: linear-gradient(180deg, #f8f9ff 0%, #fff 100%); }
     .dm-layout {
       display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
       align-items: center; margin-top: 60px;
@@ -218,70 +215,10 @@
       font-size: 0.8rem; line-height: 1.9;
     }
     .dm-code .comment { color: rgba(255,255,255,0.3); }
-    .dm-code .prompt { color: #4cc9f0; }
-    .dm-code .cmd { color: #f72585; }
+    .dm-code .kw { color: #4361ee; font-weight: 600; }
+    .dm-code .str { color: #f72585; }
     .dm-code .output { color: #06d6a0; }
     .dm-code .highlight { color: #ffd93d; }
-
-    /* ========== Agent/Skill Section ========== */
-    #agent { background: #fff; }
-    .agent-layout {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
-      align-items: center; margin-top: 60px;
-    }
-    .agent-visual {
-      background: linear-gradient(145deg, #fafbff, #eef1ff);
-      border-radius: 20px; padding: 40px;
-      border: 1px solid #eef1ff;
-    }
-    .agent-flow {
-      display: flex; flex-direction: column; gap: 16px;
-    }
-    .agent-step {
-      display: flex; align-items: center; gap: 16px;
-      padding: 16px 20px; background: #fff;
-      border-radius: 12px; border: 1px solid #eef1ff;
-      transition: transform 0.2s;
-    }
-    .agent-step:hover { transform: translateX(4px); }
-    .agent-step-num {
-      width: 36px; height: 36px; border-radius: 10px;
-      background: linear-gradient(135deg, #4361ee, #3a0ca3);
-      color: #fff; font-weight: 700; font-size: 0.9rem;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .agent-step-text { font-size: 0.95rem; color: #333; font-weight: 500; }
-    .agent-step-text span { color: #4361ee; font-weight: 600; }
-    .agent-info h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 16px; }
-    .agent-info p { color: #666; line-height: 1.8; margin-bottom: 16px; }
-    .agent-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
-    .agent-tag {
-      padding: 6px 14px; border-radius: 8px;
-      background: #eef1ff; color: #4361ee; font-size: 0.82rem; font-weight: 500;
-    }
-
-    /* ========== CTA ========== */
-    #cta {
-      background: linear-gradient(145deg, #0f0f23, #1a1a3e);
-      color: #fff; text-align: center;
-    }
-    .cta-inner { max-width: 640px; margin: 0 auto; }
-    .cta-inner h2 {
-      font-size: 2.5rem; font-weight: 800; margin-bottom: 16px;
-    }
-    .cta-inner p {
-      color: rgba(255,255,255,0.65); font-size: 1.1rem; margin-bottom: 36px;
-    }
-    .btn-glow {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 16px 40px; border-radius: 12px;
-      background: linear-gradient(135deg, #4361ee, #4cc9f0);
-      color: #fff; font-weight: 600; font-size: 1.05rem;
-      box-shadow: 0 4px 30px rgba(67,97,238,0.4);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .btn-glow:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(67,97,238,0.55); }
 
     /* ========== Footer ========== */
     footer {
@@ -301,23 +238,21 @@
     /* ========== Responsive ========== */
     @media (max-width: 900px) {
       .hero-inner { grid-template-columns: 1fr; text-align: center; }
-      .hero-text .tagline { margin: 20px auto 0; }
+      .hero-text .tagline { margin: 16px auto 0; }
       .hero-actions { justify-content: center; }
       .hero-visual-card { max-width: 400px; margin: 0 auto; }
-      .dm-layout, .agent-layout { grid-template-columns: 1fr; }
+      .dm-layout { grid-template-columns: 1fr; }
       .section-title { font-size: 2rem; }
       .hero-text h1 { font-size: 2.5rem; }
     }
     @media (max-width: 640px) {
-      .nav-links { display: none; }
-      .mobile-toggle { display: block; }
       .nav-inner { padding: 12px 20px; }
       section { padding: 60px 20px; }
       .hero-inner { padding: 100px 20px 60px; }
       .hero-text h1 { font-size: 2rem; }
       .hero-text .tagline { font-size: 1.05rem; }
       .hero-actions { flex-direction: column; align-items: stretch; }
-      .btn-primary, .btn-secondary { justify-content: center; }
+      .btn-primary, .btn-disabled { justify-content: center; }
       .dm-showcase { padding: 20px; }
       .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
     }
@@ -342,14 +277,6 @@
         <img src="manta-x-logo.png" alt="Manta-X">
         Manta-X
       </a>
-      <ul class="nav-links">
-        <li><a href="#features">功能</a></li>
-        <li><a href="#agent">Agent</a></li>
-        <li><a href="#cta" class="nav-cta">开始使用</a></li>
-      </ul>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </nav>
 
@@ -358,19 +285,15 @@
     <div class="hero-inner">
       <div class="hero-text">
         <h1 class="fade-in"><span>DataMuse</span><br>智能数据管理平台</h1>
+        <div class="coming-soon-badge delay-1">Coming Soon</div>
         <p class="tagline delay-1">
-          连接诸多数据库与数据文件，通过直观的 UI 查询分析数据，
-          也可使用 Agent-Skill 自动化完成数据处理任务。
+          一款现代化的数据管理 App，能连接诸多的数据源、数据文件，提供便捷的 UI 来管理、分析数据。
         </p>
         <div class="hero-actions delay-2">
-          <a href="#features" class="btn-primary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            了解功能
-          </a>
-          <a href="#agent" class="btn-secondary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-            Agent 自动化
-          </a>
+          <span class="btn-disabled">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            即将发布，敬请期待
+          </span>
         </div>
       </div>
       <div class="hero-visual fade-in delay-3">
@@ -397,14 +320,13 @@
     </div>
   </section>
 
-  <!-- DataMuse Product -->
+  <!-- Features -->
   <section id="features">
     <div class="section-inner">
       <span class="section-badge">核心能力</span>
       <h2 class="section-title">一站式数据管理体验</h2>
       <p class="section-desc">
-        一款现代化的数据管理应用，能连接诸多数据库和数据文件，
-        提供便捷的 UI 来管理和分析数据，也能通过 Agent-Skill 自动化操纵数据。
+        DataMuse 能连接诸多的数据源、数据文件，提供便捷的 UI 来管理、分析数据。
       </p>
       <div class="dm-layout">
         <div class="dm-features">
@@ -423,13 +345,6 @@
             </div>
           </div>
           <div class="dm-feature">
-            <div class="dm-feature-icon">🤖</div>
-            <div>
-              <h4>Agent-Skill 自动化</h4>
-              <p>内置智能 Agent 与可扩展的 Skill 体系，让 AI 自动完成数据查询、分析、报告生成等任务。</p>
-            </div>
-          </div>
-          <div class="dm-feature">
             <div class="dm-feature-icon">🔒</div>
             <div>
               <h4>安全与权限</h4>
@@ -441,88 +356,27 @@
           <div class="dm-showcase-header">
             <span class="dm-showcase-logo">DataMuse</span>
             <div class="dm-showcase-tabs">
-              <span class="active">Agent</span>
-              <span>SQL</span>
+              <span class="active">Query</span>
+              <span>Browse</span>
               <span>Chart</span>
             </div>
           </div>
           <div class="dm-code">
-            <div class="comment"># 与 DataMuse Agent 对话</div>
+            <div class="comment">-- 连接 PostgreSQL 数据源</div>
             <br>
-            <span class="prompt">&gt;</span> <span class="cmd">分析上月销售数据，</span><br>
-            <span class="cmd">&nbsp;&nbsp;找出各区域 TOP5 客户</span><br>
+            <span class="kw">SELECT</span> o.order_id, c.name, o.amount<br>
+            <span class="kw">FROM</span> orders o<br>
+            <span class="kw">JOIN</span> customers c <span class="kw">ON</span> o.cid = c.id<br>
+            <span class="kw">WHERE</span> o.date >= <span class="str">'2025-01-01'</span><br>
+            <span class="kw">ORDER BY</span> o.amount <span class="kw">DESC</span><br>
+            <span class="kw">LIMIT</span> 5;<br>
             <br>
-            <div class="comment">// Agent 自动执行</div>
-            <span class="output">&rarr; 连接数据源: sales_db (PostgreSQL)</span><br>
-            <span class="output">&rarr; 执行查询: 12,847 rows (0.03s)</span><br>
-            <span class="output">&rarr; 生成分析报告...</span><br>
-            <br>
-            <span class="highlight">📊 分析完成！发现 3 个关键洞察：</span><br>
-            <span class="output">&nbsp;&nbsp;1. 亚太区增长 +37.2%</span><br>
-            <span class="output">&nbsp;&nbsp;2. Acme Corp 蝉联 TOP1</span><br>
-            <span class="output">&nbsp;&nbsp;3. 新客户转化率提升 15%</span><br>
+            <div class="comment">-- 结果</div>
+            <span class="output">&rarr; 5 rows returned (0.02s)</span><br>
+            <span class="highlight">&rarr; Total: $12.8M | Avg: $2.56M</span><br>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Agent & Skill -->
-  <section id="agent">
-    <div class="section-inner">
-      <div class="agent-layout">
-        <div class="agent-visual">
-          <div class="agent-flow">
-            <div class="agent-step">
-              <div class="agent-step-num">1</div>
-              <div class="agent-step-text">用自然语言描述 <span>数据需求</span></div>
-            </div>
-            <div class="agent-step">
-              <div class="agent-step-num">2</div>
-              <div class="agent-step-text">Agent 理解意图，自动选择 <span>Skill</span></div>
-            </div>
-            <div class="agent-step">
-              <div class="agent-step-num">3</div>
-              <div class="agent-step-text">连接数据源，执行 <span>查询与分析</span></div>
-            </div>
-            <div class="agent-step">
-              <div class="agent-step-num">4</div>
-              <div class="agent-step-text">生成可视化结果与 <span>分析报告</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="agent-info">
-          <span class="section-badge">自动化</span>
-          <h3>Agent + Skill<br>让数据自己说话</h3>
-          <p>
-            DataMuse 内置智能 Agent，理解自然语言指令，自动规划数据任务。
-            通过可扩展的 Skill 体系，连接数据库、执行分析、生成报告——一切自动化完成。
-          </p>
-          <p>
-            无需编写复杂查询，只需描述你想知道什么，Agent 帮你搞定。
-          </p>
-          <div class="agent-tags">
-            <span class="agent-tag">自然语言查询</span>
-            <span class="agent-tag">自动 SQL 生成</span>
-            <span class="agent-tag">智能分析</span>
-            <span class="agent-tag">报告生成</span>
-            <span class="agent-tag">Skill 扩展</span>
-            <span class="agent-tag">多数据源</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section id="cta">
-    <div class="cta-inner">
-      <h2>准备好释放数据的力量了吗？</h2>
-      <p>开始使用 DataMuse，让数据管理变得简单而强大。</p>
-      <a href="https://github.com/manta-x" class="btn-glow" target="_blank" rel="noopener">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-        访问 GitHub
-      </a>
     </div>
   </section>
 
@@ -539,32 +393,11 @@
 
   <!-- Scripts -->
   <script>
-    // Navbar scroll effect
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 20);
     });
 
-    // Mobile menu toggle (simple)
-    const mobileToggle = document.getElementById('mobileToggle');
-    const navLinks = document.querySelector('.nav-links');
-    mobileToggle.addEventListener('click', () => {
-      const open = navLinks.style.display === 'flex';
-      navLinks.style.display = open ? 'none' : 'flex';
-      if (!open) {
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '100%';
-        navLinks.style.left = '0';
-        navLinks.style.right = '0';
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.background = '#fff';
-        navLinks.style.padding = '20px';
-        navLinks.style.gap = '16px';
-        navLinks.style.boxShadow = '0 8px 30px rgba(0,0,0,0.08)';
-      }
-    });
-
-    // Simple scroll-triggered fade-in
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -574,7 +407,7 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.dm-feature, .agent-step').forEach(el => {
+    document.querySelectorAll('.dm-feature').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(20px)';
       el.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
