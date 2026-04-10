@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manta-X - Data Intelligence, Simplified</title>
-  <meta name="description" content="Manta-X 是一家专注于数据管理、分析与处理的软件科技公司。旗下产品 DataMuse 提供智能化的数据管理解决方案。">
+  <title>DataMuse - 智能数据管理平台 | Manta-X</title>
+  <meta name="description" content="DataMuse 是一款现代化的数据管理应用，连接诸多数据库与数据文件，提供 UI 查询分析与 Agent-Skill 自动化。">
   <link rel="icon" type="image/png" href="manta-x-logo.png">
   <style>
     /* ========== Reset & Base ========== */
@@ -167,34 +167,6 @@
       font-size: 1.1rem; color: #666; max-width: 600px;
     }
 
-    /* ========== About ========== */
-    #about { background: #fff; }
-    .about-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 32px; margin-top: 60px;
-    }
-    .about-card {
-      padding: 36px; border-radius: 20px;
-      background: #fafbff; border: 1px solid #eef1ff;
-      transition: transform 0.25s, box-shadow 0.25s;
-    }
-    .about-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(67,97,238,0.1);
-    }
-    .about-icon {
-      width: 56px; height: 56px; border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.6rem; margin-bottom: 20px;
-    }
-    .about-icon.data { background: linear-gradient(135deg, #4361ee, #3a56d4); }
-    .about-icon.analysis { background: linear-gradient(135deg, #7209b7, #560bad); }
-    .about-icon.process { background: linear-gradient(135deg, #06d6a0, #05a87e); }
-    .about-card h3 {
-      font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: #0f0f23;
-    }
-    .about-card p { color: #666; font-size: 0.95rem; line-height: 1.7; }
-
     /* ========== DataMuse ========== */
     #datamuse { background: linear-gradient(180deg, #f8f9ff 0%, #fff 100%); }
     .dm-layout {
@@ -332,7 +304,6 @@
       .hero-text .tagline { margin: 20px auto 0; }
       .hero-actions { justify-content: center; }
       .hero-visual-card { max-width: 400px; margin: 0 auto; }
-      .about-grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
       .dm-layout, .agent-layout { grid-template-columns: 1fr; }
       .section-title { font-size: 2rem; }
       .hero-text h1 { font-size: 2.5rem; }
@@ -372,8 +343,7 @@
         Manta-X
       </a>
       <ul class="nav-links">
-        <li><a href="#about">关于</a></li>
-        <li><a href="#datamuse">DataMuse</a></li>
+        <li><a href="#features">功能</a></li>
         <li><a href="#agent">Agent</a></li>
         <li><a href="#cta" class="nav-cta">开始使用</a></li>
       </ul>
@@ -387,19 +357,19 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-text">
-        <h1 class="fade-in">让数据驱动<br><span>每一个决策</span></h1>
+        <h1 class="fade-in"><span>DataMuse</span><br>智能数据管理平台</h1>
         <p class="tagline delay-1">
-          Manta-X 专注于数据管理、分析与处理，为企业提供下一代智能数据平台。
-          从连接到洞察，一站式解决数据难题。
+          连接诸多数据库与数据文件，通过直观的 UI 查询分析数据，
+          也可使用 Agent-Skill 自动化完成数据处理任务。
         </p>
         <div class="hero-actions delay-2">
-          <a href="#datamuse" class="btn-primary">
+          <a href="#features" class="btn-primary">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            了解 DataMuse
+            了解功能
           </a>
-          <a href="#about" class="btn-secondary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-            关于 Manta-X
+          <a href="#agent" class="btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            Agent 自动化
           </a>
         </div>
       </div>
@@ -427,40 +397,11 @@
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about">
-    <div class="section-inner">
-      <span class="section-badge">关于 Manta-X</span>
-      <h2 class="section-title">专注数据，驱动未来</h2>
-      <p class="section-desc">
-        Manta-X 是一家软件科技公司，致力于让数据管理变得更简单、更智能、更高效。
-        我们相信，数据是现代企业的核心资产。
-      </p>
-      <div class="about-grid">
-        <div class="about-card">
-          <div class="about-icon data">🗄️</div>
-          <h3>数据管理</h3>
-          <p>连接多种数据源与数据文件，统一管理结构化与非结构化数据，让数据触手可及。</p>
-        </div>
-        <div class="about-card">
-          <div class="about-icon analysis">📊</div>
-          <h3>数据分析</h3>
-          <p>提供直观的可视化分析能力，从海量数据中快速发现趋势、洞察与业务价值。</p>
-        </div>
-        <div class="about-card">
-          <div class="about-icon process">⚙️</div>
-          <h3>数据处理</h3>
-          <p>高效的数据处理引擎，支持清洗、转换、聚合等操作，为业务提供高质量数据。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- DataMuse Product -->
-  <section id="datamuse">
+  <section id="features">
     <div class="section-inner">
-      <span class="section-badge">核心产品</span>
-      <h2 class="section-title">DataMuse — 智能数据管理平台</h2>
+      <span class="section-badge">核心能力</span>
+      <h2 class="section-title">一站式数据管理体验</h2>
       <p class="section-desc">
         一款现代化的数据管理应用，能连接诸多数据库和数据文件，
         提供便捷的 UI 来管理和分析数据，也能通过 Agent-Skill 自动化操纵数据。
@@ -590,7 +531,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <img src="manta-x-logo.png" alt="Manta-X">
-        Manta-X &copy; 2025
+        Manta-X &copy; 2026
       </div>
       <div>专注于数据管理、分析与处理</div>
     </div>
@@ -633,7 +574,7 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.about-card, .dm-feature, .agent-step').forEach(el => {
+    document.querySelectorAll('.dm-feature, .agent-step').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(20px)';
       el.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
